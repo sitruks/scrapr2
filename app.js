@@ -2,6 +2,7 @@ const createError = require('http-errors');
 const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
+const exphbs = require("express-handlebars");
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const favicon = require('serve-favicon');
