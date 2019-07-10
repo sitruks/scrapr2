@@ -41,7 +41,7 @@ router.post('/coin/:id/update', coin_controller.coin_update_post);
 router.get('/coin/:id', coin_controller.coin_detail);
 
 // GET request for list of all Coin.
-router.get('/', coin_controller.coin_list);
+router.get('/saved', coin_controller.coin_list);
 
 /// NOTE ROUTES ///
 

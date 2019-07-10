@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row text-center">
     <div class="col-xs-12">
-      <h3>"{{data.title}}" Notes</h3>
+      <h3>"{{data.coin}}" Notes</h3>
     </div>
   </div>
   <div class="row">
@@ -35,7 +35,7 @@
             {{#each data.note}}
               <hr>
               <button data-id={{this._id}} class="delete-note" style="padding: 5px 10px; float:right">Delete</button>
-              <h4><strong>{{this.title}}</strong></h4>
+              <h4><strong>{{this.coin}}</strong></h4>
               <h5>{{this.body}}</h5>
               <hr>
             {{/each}}

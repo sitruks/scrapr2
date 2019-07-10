@@ -2,13 +2,13 @@ const createError = require('http-errors');
 const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
-const exphbs = require("express-handlebars");
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const favicon = require('serve-favicon');
 
+const hb = require("./config/handlebars");
 const indexRouter = require('./routes/index');
-const homeRouter = require('./routes/home');
+const cryptoRouter = require('./routes/crypto');
 const usersRouter = require('./routes/users');
 
 const compression = require('compression');
@@ -33,9 +33,9 @@ mongoose
   })
   .catch(err => console.log('There was an error with your connection:', err));
 
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'handlebars');
+//set template engine
+app.engine("hbs", hb);
+app.set("view engine", "hbs");
 
 // //// Middleware
 app.use(favicon(path.join(__dirname, 'public', 'images/favicon.ico'))); // Favicon setup
@@ -46,10 +46,11 @@ app.use(cookieParser());
 app.use(helmet());
 app.use(compression()); //Compress all routes
 
+// app.use(express.static(path.join(__dirname, 'views')));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/home', homeRouter);
+app.use('/crypto', cryptoRouter);
 app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler

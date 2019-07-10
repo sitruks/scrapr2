@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row text-center">
         <div class="col-xs-12">
-            <h1>Saved Articles</h1>
+            <h1>Saved Coins</h1>
         </div>
     </div>
     <div class="row" style="padding-bottom:2%;">
@@ -11,14 +11,17 @@
     </div>
     <div class="row">
         <div class="col-12">
-            <div id="articles" style="padding-right:3%;">
+            <div id="coins" style="padding-right:3%;">
                 {{#each saved}}
-                <button data-id={{this._id}} class="delete-article" style="padding: 3px 6px; float:right;">Delete from
+                <button data-id={{this._id}} class="delete-coin" style="padding: 3px 6px; float:right;">Delete from
                     Saved</button>
                 <button data-id={{this._id}} class="note-comment"
                     style="padding: 3px 6px; float:right; margin-right:.5%">Article Notes</button>
-                <h4><strong>{{this.title}}</strong></h4>
-                <a href="{{this.link}}">{{this.link}}</a>
+                <h4><strong>{{this.coin}}</strong></h4>
+                <h4>{{this.symbol}}</h4>
+                <h4>{{this.marketCap}}</h4>
+                <h4>{{this.price}}</h4>
+                <h4>{{this.volume}}</h4>
                 {{#if this.excerpt}}
                 <h5>{{this.excerpt}}</h5>
                 {{/if}}
